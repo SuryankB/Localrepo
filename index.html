@@ -3,15 +3,445 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CANCER CONSULTATION WEBSITE</title>
     <style>
-        *{
-            background-color: blue;
-            color: aliceblue;
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Light blue background */
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #89CFF0; /* Soft blue */
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            background-image: url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSBe2C35UfWJYT0Bx824NO1dDv0Nin9C456IAyn8RSUwM8RPMUQ'); /* Replace with the actual image URL */
+            background-size: cover;
+            background-position: center center;
+            color: #ffffff;
+            padding: 100px 30px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 40px 20px;
+            margin: 20px auto;
+            max-width: 1000px;
+            background-color: #ffffff;
+            border-radius: 8px;
+        }
+
+        section h2 {
+            font-size: 2em;
+            color: #4682b4; /* Steel blue */
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #89CFF0;
+            color: #fff;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #4682b4; /* Steel blue */
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Video Styles */
+        video {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        /* Form Styles */
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 1.1em;
+            color: #4682b4;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="mobile"],
+        input[type="date"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #89CFF0;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #66b3cc; /* Slightly darker blue */
+        }
+
+        /* Image Styling */
+        img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        /* Links */
+        a {
+            color: #4682b4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Doctor's Profile Section */
+        .doctor-card {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .doctor-card div {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin: 10px;
+            border-radius: 8px;
+            background-color: #f7f7f7;
+        }
+
+        .doctor-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .doctor-card h3 {
+            color: #4682b4;
+            font-size: 1.5em;
+        }
+
+        .doctor-card p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        
+        /* Top Hospitals Section Styles */
+#top-hospitals {
+    background-color: #f7f9fc; /* Light background */
+    padding: 40px 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 8px;
+}
+
+#top-hospitals h2 {
+    font-size: 2.5em;
+    color: #00bcd4; /* Subtle blue */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#top-hospitals p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Hospital Card Styles */
+.hospital-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.hospital-card div {
+    flex: 1 1 calc(33.33% - 20px); /* Three equal columns with space */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hospital-card div:hover {
+    transform: translateY(-10px); /* Slight upward movement */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Hospital Image Styling */
+.hospital-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Hospital Name Styling */
+.hospital-card h3 {
+    color: #00bcd4; /* Subtle blue */
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+/* Specializations and Location */
+.hospital-card p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.hospital-card p strong {
+    color: #00bcd4; /* Highlight labels with subtle blue */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hospital-card div {
+        flex: 1 1 100%; /* Stack the cards vertically on small screens */
+    }
+}
+
+
+        
+
     </style>
 </head>
 <body>
-    <h1>My first project on GITHUB</h1>
+    <header>
+        <h1>HEALING HORIZON</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <h1>Welcome to Healing Horizon</h1>
+            <p>Your partner for Medical Care.</p>
+        </section>
+
+    
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>We are committed to delivering high-quality services that enhance health care service. Our mission is to empower our patients through our expertise.</p>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <table>
+                <tr>
+                    <th>Service Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>Consultation</td>
+                    <td>Free initial consultation to discuss your heath.</td>
+                    <td>₹0</td>
+                </tr>
+                <tr>
+                    <td>Patient Appointment </td>
+                    <td>Check ups for your heath issues.</td>
+                    <td>₹1000/hour</td>
+                </tr>
+                <tr>
+                    <td>Support</td>
+                    <td>24/7 customer support for all clients.</td>
+                    <td>₹10000/month</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="top-doctors">
+            <h2>Top Indian Doctors</h2>
+            <p>Here are some renowned doctors from India, leading in their respective fields:</p>
+
+            <div class="doctor-card">
+                <div>
+            
+                    <h3>Dr. Vikram Singh</h3>
+                    <p><strong>Specialization:</strong> Cardiology</p>
+                    <p><strong>Location:</strong> AIIMS, Delhi</p>
+                    <p>Dr. Vikram Singh is a well-known cardiologist, specializing in advanced heart procedures and treatments for cardiovascular diseases.</p>
+                </div>
+
+                <div>
+                    
+                    <h3>Dr. Randeep Guleria</h3>
+                    <p><strong>Specialization:</strong> Pulmonology</p>
+                    <p><strong>Location:</strong> AIIMS, Delhi</p>
+                    <p>Dr. Randeep Guleria is an expert in pulmonology and a prominent figure in the treatment of respiratory illnesses.</p>
+                </div>
+
+                <div>
+                    
+                    <h3>Dr. Naresh Trehan</h3>
+                    <p><strong>Specialization:</strong> Cardiac Surgery</p>
+                    <p><strong>Location:</strong> Medanta, Gurugram</p>
+                    <p>Dr. Naresh Trehan is one of the top heart surgeons in India, renowned for his expertise in cardiac surgeries and heart transplants.</p>
+                </div>
+            </div>
+        </section>
+        <section id="top-hospitals">
+            <h2>Top Hospitals</h2>
+            <p>Here are some renowned hospitals in India, providing world-class healthcare services:</p>
+        
+            <div class="hospital-card">
+                <div>
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.g4poEtRbUNlKR4vO5USqfQHaEc&pid=Api&P=0&h=220" alt="AIIMS New Delhi">
+                    <h3>AIIMS, New Delhi</h3>
+                    <p><strong>Specializations:</strong> Cardiology, Neurology, Oncology, Orthopedics</p>
+                    <p><strong>Location:</strong> Ansari Nagar, New Delhi, Delhi 110029, India</p>
+                    <p>AIIMS (All India Institute of Medical Sciences) is a premier medical institution, offering cutting-edge treatments in a wide range of medical fields with highly experienced doctors and state-of-the-art facilities.</p>
+                </div>
+        
+                <div>
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSExIWFRUXFRcVGBcWFxgWFxcVFRYXFhcVFRcYHSggGBolGxcYITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGislHSYyLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLf/AABEIAJ0BQgMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAADAAECBAUGB//EAEgQAAEDAgMGAQkEBQoGAwAAAAEAAhEDIQQSMQUTIkFRYQYjMkJxgZGhscEUUtHwJHKisuEVMzRDU2JjgpLSB3ODwtPxFpOj/8QAGQEAAwEBAQAAAAAAAAAAAAAAAAECAwQF/8QAKxEAAgIBAwIEBgMBAAAAAAAAAAECEQMSITEEQRMiMlEUM0JhcfAjkaGB/9oADAMBAAIRAxEAPwDoxRSNIouRPlXoajyaK5a7uoFxVvKnFMJ2FFRpSmEapSGqjlCdoQPeFEZWKju0hTKNhh21kVr0BlNXKOHJ5KJUi1bHallVunheqd1KPUs9SNFEz3AqJCuVYVdwTslor51MOTOao6KiRyVHMouqITnooVhnITyoZ0wKYEiVGU4atDZWFDhVcfRpPj9bL9B80pS0qyoxcnRnymKg1kTcm5N+50TgprdWS+TU2USJWs2qsLCV4Vh+Oa2MzgJ0nmsprc3hLY0nYhJrZuVkOxsmxHsVqhXKnSVqLNcwLLJxbiReysYjFR3Wdiaxd2VwTM5yB0nnTkjiqW8kKhhiSAFrtwqqUkRFMqHGGBaEE1vai4/DuHqVahh3C5RsN3dE8Q+As2ribo2NxB0hZNQ3WkEZye5bdilA4pVUyukTYc4kpjiSgFMikKw/2gp0BMigs7XKn3YUwE4C57NqB7kJ90iwnhLUOiu+iqrqRC0w1IsTUwcDKA7I7GotbDcwhQQrtMiqLFGldajGALJo1oWgyvIWU0zWDROs7oqrnKwXKtVSRTBvcg1FNzoQnOVmbYNCqFGKi5qpEFYhQIVghDLVQgYTqUJikAl02Ewu7pFuhNKoT6y0n5QPYsTZWHz1Gg6DiPqHL5D2rpqo1HVlX9z+K588ux09PHueeY3aWWo5uYWI1a7nHMHuojafZvP0yDaeRb26rE8QPcMTV1A4f3GK7TcCBodendaxlsjzsmZqTX3NSljw70T1JBabASdHdFWxGJZUcLOmABpZomIA6m/v6qoKbSRIB0/dUH0G2t00t6UKckdWw8fWaOwLFZA45MRkFiMzX05BaD7LnRCp43EgnJWD4twvHTlMEq1WwoN5dzGp5ZYVc7GZHv5A6etZLCbrr4vlG9sLGV3lza7S0gsInUh+a+ptwrVNGXdlneH9mCnSe7MTL269g78VotfxdpVYrVo2clOKkjTpMA0VtosqH2mFF+0RCqmy1JILVfPvQH1RCp1seqFbElVGBm5oFjzJVByPUdKCuhbGDIFJSKZMRGEoTpIAaEk6SBHcOakpuTQuWzpoZOCkAkix0EYURCaUTOpKQixDq0UTMnzIsNmUnUE9EkKy5CLVdkVXAt4oueoPBQ86aFZOoEEhTzKJTRLIp5SSTERypOaFMobggATgFAtRC1SpUi4ho1Jj3p2FGtsPDZWZ/vFw9jR9SfgFqC7h/wBUfsBQLA1rWjQNI/8AzaUamOK+pdVA/wBAk/CPauGTttnoQjpSR5dtsgYippo3p9xiA6k3oPO+aF4pqFuKeIF2sP7IH0UqNJpaCR0XRD0o8HP63+R6eHbw2+7p+qU5w4vBIueZ++kKItc+jzP95KowjRx9Lp971KjAVSiRMPPPofRnmOyk1r/vA3Oo7HomqMdfi+H90qTQ7qDfv0/igZ0Owi40amaNWm3rA+qZ1W6Xh4uNOqCB5rTr/eYhFTj9TPTxP+JDvqEoLipFDK2Ag5yG5FIUCqQgJCEQrDghuVJiBQmhETQmFA4ShEKZAEITqSdIR26UIuQJZFyHVQNKETImyICiACkAnypwEALKkQo1DosnxbjXUMOKjdc8axMkDX2qXKnRajtZsQowvPaHimuWvdJ4MtswM5nZebbKdHxfVILodbuw/RLU/YW3ud45iA9i5Gl4wqZHPIdDS0RwEkunv2U2eNCQXFroEei3npo7sqWSuwnBPudOWpLm2eMWlheWkNDg3zDMkE6A6QFbwviWm9hqkhrGuDS58t4joLp+MvZi8L7mtCPSw5ImQPWs0bVpFofvKeUnKHZ7Fw5fBWG7QpVA1gqM86BDxckzpzN7KZ5lWxUMW/mLv2I9QoOwTu3vV5tLo93vlBxlTc03VXOJawSQAJI7T61CzSLeGJQfTLTB1WhsbDSS+LNt7TKq47zz+eS39m0wMMzq4lx73I/Ba5JeQzxQ8/4I1Lhvf/xNRgZqD9eoP2Afz60KYaLXsB/9TJ/PdGpEZxOuZxHqiCfp71zHWeXeIqDTiHEj0Br2AVQUABaRfkT2VjxQ4DEnMSJpj5kcvUqBqtjzyJgi5uumD8qPAz/Ml+QzKOnE7lz7lSqUTfjPPkOx6IegBz2JESBHnepJ9YyeJp1+QVWYBSx49IajUdvWEqZfGjTdvUch60nOdPonT6qNKo4DT7v0/BAUdF4ae6KgIH83Nj0v9Ezm6qPhqoSXiImm74Aojxqpg/Mz0cPyl+QTmqBCK5CcFuUDchkouRRLEABKGQjuaoZU0xUBhKEUtShOwApQiJIsQOEkRJFhR3SShKfMuU6yYSUMyWZAEnKOZRNVOmAJxObt69D0hZfjOk59GlTYQHOqQCdLDN0PIFaThxTPS3LsUHaLQ40p9F7ne3I4X9hKxb8xp9JwuGw9R9OpD6Zy5HTcABpJM27JqdGpui87kiQ0HhgnUgo+w2Utzii0vy7uHSWkxD/NgC+uvZQyUvsAGZ+Tfm/CXTHuhaXuY0D+zPFHMWUYc8RBaGuy55nqf4pMwNTLl+z05Ia4NBbBbBOa3QI+IpUv5OojeODN5UIfAmS6rNp7n3LZpUAHUjnMHDtAtrFBwk36X9inUPSc47AP3P8ARdagIaHDiAa4ZtephWqDN3hntdQc129ZDMwmSLOl0iOys1xTbgMM11QFsQ15brEmY5c1Y2+yqSBSjLlGfha62VscJ19imUtiox3Muq125B3bzxHyeSk+LHi82L/VBwjTnb5CoDnEH7OyGm3FI0HdTqUPJgQM+YyTRMFt7QB6lXw2HIqMkUsuYZvI1Acv90gWKxs3o9I2Y5wY0Eyb3iOZ5clDxM79Erz/AGZS2UG7tuXSLC/XvdR8RicJXH+G5CY3wLaLhvHXH5Cu7HxeeGAiGNjWbkhxJ6a/BU8ZSaXvPdZngl3lcU2Zis4D1cFlpLJqVERhplfudgXA5RNswE9AGN1UMO+a7TEcDRA/5lUIWYAZerc5PSCGgfnsj4a1QH7xygeqpUk/ER7eik1PMvGOGLsTIMeTAjXQvMrIfgHOvmFhHv8A/a3fGEjENhpPBy/6ix6VchsZXcuR7LeD2PC6n5jJVaVQsDIGhGvQjsq9XCvFo0+klWcRiZbYEHi5HqEAYggGSZn6EKrMaCYMOYHAsmY93dApNeDofNPzMFFwGKN85PKLd+yKzGTmv6Nviiwo1vBZdvi12a7XC8/dMqxtLaRp4htE0s2dwAcCYGYxxGbe5V/BWPc+uwOgEtJ0i/T4pbaqBmKMVS3jYXBzqwE8JytgZII5d1lKT1bHp9Ik8bv3Bf8AyOlme3IZph5dxGwpmHG7OqiPE2G5kiepbHxIUv5NJr1f0doFWnXDSHgGrnNhlJnivfkszE7CJYAcJU0eAGumIInQ30+CtN+5q0vY2v5XoWBeWkgEAgaHQ2doptxdN2jx7nfgsraeyGlzHGnV/o7GyGy0QyC3Tzh0lVdmbHpijiGxUaCaM5mQZzRaInUJ65Jci0Rvg6dmGLhmbxCSLTqECFteHsO1uDoZdMupEE2FyFivsT6z81rjm3yRkglTQ2RMWJ5TErQyGyJZEpTSgB8qSaUkAdhKdRhOAuazpHSSASARY6FCaVLKoFqLCgVTztOl41HSZvefeh49shmur9P1UU66/wAD+YWT4uJ3LQ12V0mDJEXbNxp09qyfJp9Jg7Jqu+zYkuogQ3zckZ7OsRz/AIqxjw0YXKKLYbTo1cuUwX1TldYdNUDZTKgw2Imo0ugQQ4wLczyVrFVnOw7yyoJFOg3NmgZmuAfxT/7T7maWxn46sz+TqDjQBaXVPJ8Qjiq8gZv9Vr4urApENA8gIBmw3Jke6RdY1HffZahLwagMtOcEA5ebpgX6rSxGKJcCHgjdgecPOFIj99JjRj/a6VXAS6lFKg8NazM6YLW+lMnz+av+KBSdUG8qZMoAa3i4pp0zctBiJCM5z/sTCINYgF4seORI6aLJqYp8M3tAvqFzw3iALQA244XA2tfokMeqGbhgJbu85h28eJdBkeZ60DACnvaeWpxZhlAqkybWgsur9bPuGu3T3S6N2GscW68V6f05oOCbNRk4Z7TnADjRZw3HF5g/IWXY12s7/Z05RmF+eh59k3iAfotf/lu+Sls0QwCZ1vEXk8uSjt/+i15/snn3BJFMjifOd6/oFjeCHgYjEg2G/db2NPxWtjPOd+eQWB4On7ZiRr5YR/pFvX+CF3B9juAMzr2BY2T3cW2HdT3k1KTjzLbdJfNvehVDZo5DdmepyvBPqsFcw9K7CR0gf5hf4q0M4HxQ8DENk8j83rnMbiy0tyxdon2LV8evDcQy02dr+sfxWVhaTXU5LRp9F041sjwuqdZZDuxPA10CSSPki4jEcTBAuBPvITvwrYNj6XMp6mEbbX0efUlXpOa0Ao1g7MMgGUe+CEM4ho1ZrI/PvR2YJsWm7ST8Ev5OaTqefwRpC0anheq04inDY4o+ih4ya0YjjaHNMRBOkCSQRGvzRPDWBAxFMhxs4H5H6onjGftHC8tMNJ4qgHYANte8rCfqPU6J/wAcvyFbut7s4w4HJFMWgDhEO9/JWcFQYbNc/hfiwZAsSambnoDUt6go4Cu5xw7S9pIz5gC2ZhhYW9pDtFPYL6k+VyyXVBbLEkNiY5kkyg6u5mYttP7HhnCu9rQ+oA4tOZ0iYIaey08Uzjx/l48m10EO8lBnNI1nsqfGcNRaaFIu3/EwNbDWFpBe0AxPL2rTxIObFkUA4uwz+R43NcQ1hg8wB70DRb2WHGlTJqZxuqRDhMHhEuAPU3WFiW8bv1nfMrf2MDuKUtyeTbwX4YJGW91h40cbv1j81rie7M8q8qAQmTpQt7OcilKUJQgBSkkkgR2WVOAnUoXDZ3URhPCeE6VjGhRcxTSKLCimYzHrabz6jHL+CxvGRBotY4GHONwRIjKefqW5UmfksTxePJNPR1rTzaPkhPcUvSc5gaDWYWsxpflfAJMZhw+jFveiYKi0Yd1IOdDieIgSMrs509UIobGGJtJPRBwk5WmbS+0djdVZmV8PhmjC1GB7yHEAuIEt4AJib/xVY4Ru6y7x384TOW/q1V2g79HfYecOv3QpswctItbj5/dnqiw5LuPw/wCg0WB3oAZsp5HXKs6nQrCixtFwLePeOyAzxSJaRPUKyccamFAygbs5NTfQz21VOu2kadPeVMnnwOLi4uoBhQ+C73CVqB3QAy7zMZcaJgtvAgM9SBg6NQVG5jTLJGbyLwcsiYIZY6o9cU/s7RMU85h2c3PFbzfWqmEpUjUYRUJIqNIG8NyC2AZbe8e9Zml7o9D2UW5G5RAvAgjmeoBUtuf0avF/JP8AflKWAJyjMIPPnzTbbP6NXvHkn36cJuki2V8WeJ3s/dCw/CFsZiSJHlf+wT71sYp3E72fuNWR4VP6XiJ03g0/VahCfY7QM4A48mBwHUgOHukq7m8owf3j8KlO3xVWrq8cgMoHQCwAV3JDmOP3iAP1nNMk/wCX5KkUed+NKAdXbI+8P2isRmHAaYkcE2J1grZ8dPDa7JnV/wC8ue37A25MFsD4rrxvyo8Hq1/LItmiCDc8+fZTNEfed6PPuq7YLS4F0SeZ6etQdimmCHOi3M8iD17rQ5iyKFhDneaefSE9OkZ888+nUINOoHWDzIB66KIrAOjOZkjS8nRKwo3fD9M7+nxHzh06DsoeOg3fjeTly2AcBfnbdu7alA2FiPLM4zOYWgdPUrPj6plrth+VxaLF7m2k6AOAWGX1Hp9D6JFbYhpNrYctDwSwZcxaQAM7bw0X4Tp2VjFbRp0sTX88llR1V2kSTRsO3m/FB2XWqZsNxtLS0zeZ4qmhMk8ufJQ2pXqOxFcsILL5LN1hlnSJ1za9kjq7bAdomhucI4vqAN3hYYBJDXNnN7wtyu5pr4hhc4O+zVgYFsrjmkX1ExCyg6oaeGzBhmo9rwRTNi6mAG26TorOGqVDiLhhzUCCYbmLiLtJ1LZ5aJjRd8FVWmk8Ne54zTmcI1Dban8lDx48o71oPgqq/ja9jGWBhjWtvMGcvsVjaP8AOO/PILSHJEvSismITpltZlQ0JJFJAmhJJpSQFHaJKSS4TtIp06hWdDSegJ9wQIklC5mp4va2M1MgGYMWMHLyPUHVM7xS03Bj2D8UAbtQDMYPrHQrC8aEmi0N84kx7C0qFTxENZJmBZgPyehU/E7H6PP+kD51EJ7g90Y0/orQ48YI5nz8p5+9NgquVsOdzJ86dWkfNdA3bjTHH+7/AORI+IaYs6pF4kt+skJ6haDlsNvNxxmDvBEEabv8VqUqzQ18u9GBfnkj5rZG2qZ/rB7m/h9E52vTAnM2J1y/gxS5AonK0y/c3md7203Y+qWJrtDKYNHev4og3bJvw5XAyOy6kbVpHRzT18mT8Miz9oYWhXe15qPaWtLYptc0GeZG7ue/dDY9JlVqjxh2O3TiC8jdZG8JGbi8z6c0LBOLnA7gNh0kuyAtgg5suW8a+xaFTZGH837RXaZnUhxkCx8nojU9l0g4H7TXgCIzGDYiTwd59izLOo2b5gvOt9OZT7bE4auP8Kp+6VTw+MpU2gZrcsxPXuO6NiMdTqMczOBmaWzOkiJFkIoqYt3EfU39xqx/DLv0zEfrt+QW5WbTdJ3sC3TkA3X2fFU9nYChSrOrfaWkugkEtAEd5SD2OxqODXOIu4lx7CLj1n5Izn6dd5r6g38VnsqNeN4HAhwJtccUmxVt1+YAFQiSQBdjIuecmFYzgvH9AOrtkxDnj3vC5yngQ4XcbC3x/BdT49puNYZQPPf++FzdOnUAIgXn5nuunG/KeH1fzWSZhS1kZ7T82hCdgREB/IdOyM7eZSIFz/2oDMI9vIXCuznJUMOWkkPEkEH2T+Cc4IlxOcSXTp0CHh8K9ji6BeR7boobUzzA/MIsC5sjC5azHZxObT8lXf8AiYx2+pnKXMAOjg2HS7WabrR3WRsnBOZVa+3n5j/mXR+O9nuq12RXFMBrpachk5zDuM+sLHJyj0ei4kl9jn8HiGNGGcGutmygkW4yDMC4v2V/Z+UOrwCPKiZPOdRawsrGy8HTpU2tqOo1HCZe6q1kyZ80GB7Ff3dIkkMpGTM78X53gpWdigznmuY5tMQ7gxbgII1LmuM282QrOz6rftrAM2YMDbxlyi86TK167KbWDLTw5cXzldicvLzswm8wI9qlSo0xVBDKGQX3gxBzaTZsXv3RqDQyp4PLc9cNzee6c0a5jpHJWtoMmofYjbLFNrnEijTcZAy194XDuDF7KddgLiVUZbicdqM3dpjTKv5AmyK9ZHhmeWFRLVo5FE0gnrDwzPypK/ugmRrDQdPnT5lzeB8UtrGGYesZOuTh9rtB6k+0tuZHFubKQPNDDUPc8ItF7+8Li8aPJsdHmQsW7gd+qfkuSq+KmMplxqPcRENLAx3TVwiJ7fNYtf8A4gvcMraJva2pn2Qo+Jj2TAr+I6U0WG4Iz6Ej+sOsLm6dVwPnHlzPQLexmLe5uYgNZmhgmHwXEnODPMmI11QKjnRw29gPs0W0JpqzF8kfDtQuLpcTxUNTOtSCsR1Zwe8Bx888z1Wts/aVTeCGgy+mIgN1qAXtfVVvtkVXNyA8RE5Wx8lSlZXCM/F46oGkh7gY6noFqbdxDxhWODjOal8cLm+d1UrbVb/ZMOv9Ww8u7VrbTqGpQYGUw4k0jAa3KPIScxPC0DvyQ2kNHMYfalW3EeXTmBPJafh3aNWo97XPJG4c64Goc0TYdEfD0yA41KdKm0GA97GQ49GEA5tNdLKzs+tTbWfTaKRduKhJYwAQC3nzaZB6a9FCnF7DM7aeKeMTWa18AVHCIH3yOiG7H1QLP5dG/ejojba2kxmKrNNNpOd18gPp9ZuoO2rSi9Nun3B96OqoW5r7WqubhGvB4vJXgf4w6dli0do1iJz8481vQHp3K3iTUpBrnUww6NLHHzC7Lp+sVWq0GMBIFMgDNZh7CLxeEjSUa7h/D2JqPLw92aKlIDhAgOz9uwXP0NuVuTh6Q80co/FdL4YrtcXwwDjozAj03Ac+6yqbqIB8k3nPD7+aSaRNsJsLbFapiaVNzhlc8AiB0d+C7PA02teHmP5tuvekFyux30vtNHLTAJqtvl7nure1tuNp1BTInyFJ+nIsHfsplvwUmdns/a9OlSY17r5NANAHOAJPIK3iNq7w0nnQ1nNExaGUIjkNeXVea4jbVJzCA2+7dAynRp0JzaWC9HwjzSaAwMJGLLQ57A9wbu6E5Z80nql2KTspeOamWuLEzUdp+s0rlcdUcYDQ4EZp95XUePywVZc+o3K98CmGknQ6usNOhXl2I8Rkk5XVRrrHXst4ZUlR5/UdLKU3JM6cFwplpDsxII9yJiM+VoDXWJPsssvYVerixla5wl3847VjW3JAFtAdRzWjtmm2mzKzE1s7RbM5sO9cNGUmFEurxxkovky+BlzY7M4qZiHZb++/8VXeX8g6f4LM2fi8VmaXMrBjjAdVa7IZ7wJ96arVqZnAPdYkWJ5GPd2WnjJ8B8DL3N7Z73ZhY6hbX/Eys5jgWmDmA9hNUrh8FinnFMo7x1zycR6Bd9F3P/EaqGv0B4gLgH0njmCplLUdXT4XiUtzzvE7TqmoxuYQQbQORA+q67xDXextIsIALCTYa5KRHwJXNVcVL2DK0a+izlBjzfWuk2zjyG0gObJ0H9nR6hRZvbMbw3j31MWwOfI3rWxA0N1oeIt+2q8MmDlDQ0Am7BoNevuKobJ2i7fsgwXVGtBgWJtMReFYrV2U3Pa5rs7hrmzSCAQ8i0yb5dFnObjVIVs1tg7TZQaRiKgdVDcxY0S4Q27bADNfSV0eDxLatNtRoIa4SA4Fro7g6LhtmbPzuBa1gfcve9mYWPcyDZdthTDQJJi0nU9yrwubb1Ag5CZRLlEvXQMmmJQzVUDVStCCynVfep0wMM7dc1gaKxpxMgtzX58RdOvqUqFY1oZUxLXskyBSeDfSCSPUVk7R2gMxO6aTrefpCoDbhzWptEQLF0XAGkwvH1Y3vpf9lHRs2RhaVUZt45rwYl7vPBkS1sTadZ0CqY/aL6zd0xtMgZgYbVY4w4QYgAaaTryWTW2tVc0kOjLccxa9p0NtUDA7arGnVOa7W5mmBY5hfTvzW0ZqS4HVhq7wIaDZsHi4pkSLk31Ky9o7Qlrt0SNMztCLCIHt15Igx73ktMZdIAAiBAi3JPQ2RJHHGaAeEXkfgFcMiW1E1uS8N4oZ6TiDw1WF2Ykkl7wBcaiSrmJ2vWrirS37wGNc9zdWubTe0ZSDrcjpotRvhalSeKjSZZWpEWF4exwQ62xGsfUc10bxr2u4Ro9wcbz1AVvLFFuJzWMxtRmUBlMh9FlZoi8PbOWfZ1K6HaldlOnkI1exoHEJ4Xi4nkBoeyjifD7XhgLvNptpC3otlo59JVrH4OrLTv7FxcRkF7zcz3hZS6mDVITic9T2m2qWxTaGNJYWiTDrkEzqQbT3Q8LtINrl7yAzcFrS5pBdvGB0Ei0zC6LH4MsG8NRxibABvnZm9OSzm4YEOlzyCIIcWuEEXiW29amOWK3oNilth1Nteo17Zh5Ju69xBkKs6thudI6GeJ/Iz16q7iqdN7y97XFzjc5gJIvoGwo1qeHiTRcTB/rI+AYtY5Y+wOtjUwuNDWgDPzjK/KIJnoVHFYoFpnOWhuheTYXN4HRWfDuFp1625Ic3hLpDugBiI7rpn+EaBBBc+CINx+C1WWLRUoNyZyXhLH0nuqBjIh9EG7jM1Y591lDaeHEjIYlwN3cjddthvB2HpBwYajc2XNlfBOR2ZpmJEG9kH/4Ng9cr7yTxm86qPEiw8JnObF2hQdiqAa3i3rIu7UujqibcxOGFVoeyXfZqR1eODLYWt9V01Dwnhqb2vY1wc0y0yJBnNzHW6JifCmGqOD3tc5waGA5h5o0bYaJ64j8JnFDEYb0aNy14u58RmII87mvTKeKG7YXOaHfaC4jMObKcnXqFl4TwnhGukU3TBE55iTMgEQDK02+C6bhLatRvryu+iyyTl9CDQ1wD8U4vDvruDqjS3MTIMiDGhbPdeLP2VV37iKb8u8eW2MZcxi3qheuYzwq5mmI99MfQrB2jQdS1cH2Po5dPaVg+oyx+lf2J33KPhAOo0yHtc153gggnWcpJFgg717sRSzUjuxUBdwk2Dpl3bRW6eIOkD49PWpmvyyttHX8Vyy6huWpoW5Ha+06738IfE3OgidL6rONKpndFN2WZmL3OkLQ+0/3QnfXEeYPh+CePqXjVJAZ2Do1W4htXdOyt/ujMeGNfaul8W492LfNFhZz8qCB50xwhxm/ILNpVGxOQD3fgpse3TIPz7Ffx8/YVmRV2TinEcdLnpvPZd7Gha9fAYqo2mGmm3KBmmoyTwNbbi6tKfhnze6ZuU+j8fWl8dkDb2K79m1sMRWqkPhzS1tJ7XEkGYOsN7wo4rEiplqFtZrpjK0tiBAEy2YME26rP2pRYal269yqj2sBjJPt/FbxySkrtifJt0dqVKQltOSXOEEzYCxFxzPXkmbtbGuux7GDm05Bf/NJWC/dj+qHw/wBqA+rT/sh+z/tWinPt+/6I6ultvGCQXUD3cQJ/0kR7iq2Jxu0Kg8/CNB/xsp+DtVz1OpTP9U39np+qpNdSn+Zby5M9X3FXiT4f7/o7+xrUtnV3CKlajfm3EzPW2U6KtXwDmOs4uE606jSIkxdwnSNBafagHdwDuhJtoz1fcUH1mf2Y/Y/2KfEk+F+/2Nv7GkMNU++4f9Sn/uSWbvWf2Y/Z/wBqSXiSD/h//9k=" alt="Medanta The Medcity, Gurugram">
+                    <h3>Medanta The Medcity, Gurugram</h3>
+                    <p><strong>Specializations:</strong> Cardiac Surgery, Neurology, Organ Transplant, Oncology</p>
+                    <p><strong>Location:</strong> Sector 38, Gurugram, Haryana 122001, India</p>
+                    <p>Medanta is one of the largest multi-super specialty institutes in India. Known for its advanced infrastructure and a team of renowned specialists, Medanta provides comprehensive medical care across several specialties.</p>
+                </div>
+        
+                <div>
+                    <img src="data:image/jpeg;base64,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" alt="Manipal Hospital, Bangalore">
+                    <h3>Manipal Hospital, Bangalore</h3>
+                    <p><strong>Specializations:</strong> Orthopedics, Cardiology, Neurosciences, Cancer Care</p>
+                    <p><strong>Location:</strong> 98, 100, HAL Old Airport Rd, Kodihalli, Bangalore, Karnataka 560017, India</p>
+                    <p>Manipal Hospital is a leading healthcare provider in India, known for its highly skilled doctors and world-class medical services in multiple specialties. The hospital is equipped with the latest technology and facilities.</p>
+                </div>
+        
+                <div>
+                    <img src="https://img.etimg.com/thumb/msid-44908753,width-640,resizemode-4,imgsize-298227/sir-hn-reliance-foundation-hospital.jpg" alt="Sir HN Reliance Foundation Hospital, Mumbai">
+                    <h3>Sir HN Reliance Foundation Hospital, Mumbai</h3>
+                    <p><strong>Specializations:</strong> Cancer Treatment, Neurosurgery, Pediatrics, Organ Transplant</p>
+                    <p><strong>Location:</strong> B 2, Near Prabhadevi Station, Prabhadevi, Mumbai, Maharashtra 400025, India</p>
+                    <p>Sir HN Reliance Foundation Hospital is known for its world-class facilities and patient-centered care. It offers comprehensive healthcare services with a focus on medical excellence and cutting-edge technology.</p>
+                </div>
+            </div>
+        </section>
+        
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+
+                <label for="mobile">Mobile No.:</label>
+                <input type="text" id="mobile" name="mobile"><br><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+
+        <!-- Animated Video Section -->
+        <section class="video-section">
+            
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2024 Healing Horizon | All Rights Reserved
+    </footer>
 </body>
 </html>
